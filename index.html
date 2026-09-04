@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="https://kit.fontawesome.com/8125016427.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Estilos/main.css">
+    <script src="JS/script.js" defer></script>
+    <title>To do list</title>
+</head>
+<body>
+
+    <main>
+        <h1>Lista to do avançada.</h1>
+        <div id="campTudoInput">
+            <form>
+                <div id="criarListaCamp">
+                    <h2>Criar uma lista:</h2>
+                    <p>
+                        <input type="text" name="criar" id="icriar">
+                        <i class="fa-solid fa-plus"></i>
+                    </p>
+                </div>
+
+                <div id="campPesquisar">
+                    <h2>Pesquisar na lista:</h2>
+                    <p>
+                        <input type="text" name="pesquisa" id="ipesquisa">
+                        <i class="fa-solid fa-eraser"></i>
+                    </p>
+                </div>
+
+                <div id="campFiltro">
+                    <h2>Filtrar:</h2>
+                    <select name="filtro" id="iFiltro">
+                        <option value="TDs" selected>Todos</option>
+                        
+                        <option value="Feitos">Feitos</option>
+
+                        <option value="PFazer">Para fazer</option>
+                    </select>
+                </div>
+
+                <div id="campoTarefas">
+                    <div class="tarefa">
+                        <p>Fazer receita</p>
+                        <i class="fa-solid fa-square-check"></i>
+                        <i class="fa-solid fa-square-pen"></i>
+                        <i class="fa-solid fa-square-xmark"></i>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </main>
+    
+</body>
+</html>
