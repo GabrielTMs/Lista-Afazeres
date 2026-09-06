@@ -95,7 +95,21 @@ div#campFiltro {
 
 input {
     font: normal 1em Arial, Helvetica, sans-serif;
-    padding: 2px 3px;
+    padding: 4px 7px;
+    background-color: #cccccc;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type=text]::placeholder {
+    color: #ffffff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.404);
+    font-size: 1.1em;
+    text-align: center;
+}
+
+input:focus-within {
+    background-color: #ffffff;
 }
 
 select {
@@ -105,8 +119,21 @@ select {
 
 .icone {
     transform: translateY(10%);
-    font-size: 1.2em;
+    font-size: 1.3em;
+    cursor: pointer;
 }
+
+.icone:hover {
+    color: #4fd8dd;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.438));
+    transition: color .2s, .05s;
+}
+
+.icone:active {
+    color: #b0fcff;
+    transition: .1s;
+}
+
 
 div#campoTarefas {
     width: 100%;
