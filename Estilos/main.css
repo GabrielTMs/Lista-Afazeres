@@ -21,7 +21,7 @@ main {
     background-color: #fff;
     margin: auto;
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
     padding: 15px;
     position: absolute;
     top: 50%;
@@ -38,10 +38,15 @@ h1 {
     margin-bottom: 12px;
 }
 
+hr {
+    margin-bottom: 12px;
+    width: 100%;
+}
+
 h2 {
     font-weight: lighter;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.295);
-    font-size: 1.4em;
+    font-size: 1.5em;
 }
 
 form#campTudoInput {
@@ -72,8 +77,11 @@ div#camposPesFiltr {
 }
 
 div#criarListaCamp {
-    align-self: center;
     text-align: center;
+}
+
+div#criarListaCamp p {
+    
 }
 
 div#campPesquisar {
@@ -93,4 +101,86 @@ input {
 select {
     font-size: 1.1em;
     text-align: center;
+}
+
+.icone {
+    transform: translateY(10%);
+    font-size: 1.2em;
+}
+
+div#campoTarefas {
+    width: 100%;
+}
+
+div.tarefa {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    background-color: #20D6CF;
+    padding: 10px ;
+    border-radius: 5px;
+    border: 2px solid transparent;
+}
+
+.tarefaIcon {
+    font-size: 1.6em;
+    transform: translateY(5%);
+    cursor: pointer;
+}
+
+.tarefaIcon:hover {
+    transition: color .2s, filter .1s;
+    transition-timing-function: ease;
+}
+
+.concluida:hover {
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.329));
+    color: #44db3f;
+}
+
+.concluida:active {
+    color: #91ff8d;
+    transition-duration: .1s;
+}
+
+.penIcon:hover {
+    color: #4293d4;
+}
+
+.penIcon:active {
+    color: #70bfff;
+}
+
+.deleteIcon {
+    font-size: 1.6em;
+    transform: translateY(5%);
+    cursor: pointer;
+    color: #e03d3d;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.233));
+}
+
+.deleteIcon:hover {
+    color: #ff4f4f;
+    transition-duration: .2s;
+    transition-timing-function: ease;
+}
+
+.deleteIcon:active {
+    color: #ffebeb;
+    transition-duration: .1s;
+}
+
+
+.tarefa p {
+    font-size: 1.3em;
+    font-weight: normal;
+}
+
+.tarefa p.Completo {
+    font-style: italic;
+    text-decoration: line-through;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.486);
 }
