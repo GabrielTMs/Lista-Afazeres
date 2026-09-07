@@ -21,9 +21,20 @@
                     <h2>Criar uma lista:</h2>
                     <p>
                         <input type="text" name="criar" id="icriar" placeholder="Escreva a tarefa">
-                        <button><i class="fa-solid fa-plus icone"></i></button>
+                        <button type="submit"><i class="fa-solid fa-plus icone"></i></button>
                     </p>
                 </div>
+
+
+                <div id="editarListaCamp" class="esconder">
+                    <h2>Edite sua lista aqui:</h2>
+                    <p>
+                        <input type="text" name="editar" id="ieditar" placeholder="Escreva a tarefa">
+                        <button type="submit"><i class="fa-solid fa-check-double icone"></i></button>
+                    </p>
+                </div>
+
+                <button id="cancelarButton" class="esconder">Cancelar</button>
 
                 <hr class="hrMeioListas">
 
@@ -32,7 +43,7 @@
                         <h2>Pesquisar na lista:</h2>
                         <p id="pesquisarP">
                             <input type="text" name="pesquisa" id="ipesquisa" placeholder="Pesquise o nome aqui">
-                            <button><i class="fa-solid fa-eraser icone"></i></button>
+                            <button id="deleteButton"><i class="fa-solid fa-eraser icone"></i></button>
                         </p>
                     </div>
                     <div id="campFiltro">
@@ -46,12 +57,15 @@
                     </div>
                 </div>
 
-                <div id="campoTarefas">
+
+            </form>
+
+            <div id="campoTarefas">
                     <div class="tarefa tarefaCompleta">
                         <p class="Completo">Fazer receita de bolo caseira</p>
                         <div id="iconesCampo">
                             <button><i class="fa-solid fa-square-check tarefaIcon concluida"></i></button>
-                            <button><i class="fa-solid fa-square-pen tarefaIcon penIcon"></i></button>
+                            <button id="editarButton"><i class="fa-solid fa-square-pen tarefaIcon penIcon"></i></button>
                             <button><i class="fa-solid fa-square-xmark deleteIcon"></i></button>
                         </div>
                     </div>
@@ -65,8 +79,6 @@
                         </div>
                     </div>
                 </div>
-
-            </form>
     </main>
     
 </body>
