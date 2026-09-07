@@ -39,8 +39,15 @@ h1 {
 }
 
 hr {
+    border: none;
+    height: 1.4px;
     margin-bottom: 12px;
     width: 100%;
+    background-color: #3a82bd75;
+}
+
+.hrMeioListas {
+    max-width: 400px;
 }
 
 h2 {
@@ -72,8 +79,9 @@ div#camposPesFiltr {
     align-self: center;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    gap: 24px;
 }
 
 div#criarListaCamp {
@@ -85,11 +93,11 @@ div#criarListaCamp p {
 }
 
 div#campPesquisar {
-    align-self: flex-start;
 }
 
 div#campFiltro {
-    align-self: flex-start;
+    border-left: 1px solid #3a82bd75 ;
+    padding-left: 31px;
 
 }
 
@@ -106,6 +114,11 @@ input[type=text]::placeholder {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.404);
     font-size: 1.1em;
     text-align: center;
+}
+
+input[type=text]:focus-within::placeholder {
+    color: #868686;
+    text-shadow: none;
 }
 
 input:focus-within {
