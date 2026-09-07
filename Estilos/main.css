@@ -102,6 +102,7 @@ input {
 }
 
 input[type=text]::placeholder {
+    font-weight: lighter;
     color: #ffffff;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.404);
     font-size: 1.1em;
@@ -158,6 +159,8 @@ div.tarefa {
     border: 2px solid transparent;
     margin-bottom: 15px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.308);
+    transition: .2s;
+    transition-timing-function: ease;
 }
 
 .tarefaChanging {
@@ -228,7 +231,7 @@ div.iconesCampo {
     flex: 1;
 }
 
-.tarefa p.Completo {
+.tarefaCompleta p {
     font-style: italic;
     text-decoration: line-through;
     color: #fff;

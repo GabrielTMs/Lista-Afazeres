@@ -54,3 +54,18 @@ formCampo.addEventListener("submit", (e) => {
         criadorLista(criarInput);
     }
 });
+
+document.addEventListener("click", (e) => {
+    const alvoBtn = e.target;
+
+    const paiBtnConcluir = alvoBtn.closest(".btnConcluir");
+
+    if (paiBtnConcluir) {
+
+        const tarefaDiv = paiBtnConcluir.closest(".tarefa");
+        
+        if (tarefaDiv) {
+            tarefaDiv.classList.toggle("tarefaCompleta");
+        }
+    }
+});
