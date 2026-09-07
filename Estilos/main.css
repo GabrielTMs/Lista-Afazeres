@@ -165,6 +165,14 @@ div.tarefa {
     transition: .2s;
 }
 
+div.iconesCampo {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
 .tarefaIcon {
     font-size: 1.6em;
     transform: translateY(5%);
