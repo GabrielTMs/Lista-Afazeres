@@ -22,7 +22,7 @@ main {
     margin: auto;
     width: 100%;
     max-width: 450px;
-    padding: 15px;
+    padding: 15px 15px 0px 15px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -134,6 +134,7 @@ select {
     transform: translateY(10%);
     font-size: 1.3em;
     cursor: pointer;
+    margin-left: 6px;
 }
 
 .icone:hover {
@@ -162,6 +163,13 @@ div.tarefa {
     padding: 10px ;
     border-radius: 5px;
     border: 2px solid transparent;
+    margin-bottom: 15px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.308);
+}
+
+.tarefaChanging {
+    opacity: .4;
+    transition: .2s;
 }
 
 .tarefaIcon {
@@ -223,4 +231,17 @@ div.tarefa {
     text-decoration: line-through;
     color: #fff;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.486);
+}
+
+div.tarefaCompleta {
+    border: 2px solid #4eda49;
+}
+
+button {
+    font-size: inherit;
+    transform: inherit;
+    color: inherit;
+    filter: inherit;
+    border: none;
+    background-color: transparent;
 }
