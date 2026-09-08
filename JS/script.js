@@ -5,7 +5,11 @@ const campEdicao = document.querySelector("#editarListaCamp");
 const inputEdit = document.querySelector("#ieditar");
 const botaoEdit = document.querySelector("#botaoCampoEdicao");
 const botaoCancelar = document.querySelector("#cancelarButton");
+const inputPesquisar = document.querySelector("#ipesquisa");
+const botaoPesquisarDel = document.querySelector("#deleteButton");
+const botaoFiltro = document.querySelector("#iFiltro");
 const tarefasCampo = document.querySelector("#campoTarefas");
+
 
 let tituloAntigoTarefa;
 
@@ -68,6 +72,54 @@ const inputEditFunction = (paragraf) => {
     })
 }
 
+const buscaFunction = (buscaAlvo) => {
+    const seletorParaBusca = document.querySelectorAll(".tarefa");
+
+    seletorParaBusca.forEach((tarefas) => {
+        let tituloListaBusca = tarefas.querySelector("p").innerText.toLowerCase();
+
+        const procurador = buscaAlvo.toLowerCase();
+
+        tarefas.style.display = "flex";
+
+        if (!tituloListaBusca.includes(procurador)) {
+            tarefas.style.display = "none";
+        }
+    })
+}
+
+const filtroFunction = (valorEscolhidoFiltro) => {
+
+    const seletorParaFiltro = document.querySelectorAll(".tarefa");
+
+    switch (valorEscolhidoFiltro) {
+        case "Todos":
+            seletorParaFiltro.forEach((tarefaExibida) => {
+                tarefaExibida.style.display = "flex";
+            })
+            break;
+
+        case "Feitos":
+            seletorParaFiltro.forEach((tarefaExibida) => {
+                tarefaExibida.classList.contains("tarefaCompleta") 
+                ? (tarefaExibida.style.display = "flex") 
+                : (tarefaExibida.style.display = "none")
+            });
+            break;
+
+        case "PFazer":
+            seletorParaFiltro.forEach((tarefaExibida) => {
+                !tarefaExibida.classList.contains("tarefaCompleta") 
+                ? (tarefaExibida.style.display = "flex") 
+                : (tarefaExibida.style.display = "none")
+                /*Depois deste forEach, nas chaves o ! é como dentro de um if, então nesse caso, caso o argumento seja diferente de ter uma classe tarefaCompleta, então if os elementos forem diferentes eles terão aqui um display = "flex" else terão um display = "none", então o ? é if e o : é else*/
+            });
+            break;
+    
+        default:
+            break;
+    }
+}
 
 formCampo.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -137,4 +189,24 @@ botaoEdit.addEventListener("click", (e) => {
         inputEditFunction(alterandoInputEdit);
     }
     esconderFunction();
+})
+
+inputPesquisar.addEventListener("keyup", (e) => {
+    const buscaAlvo = e.target.value;
+
+    buscaFunction(buscaAlvo);
+})
+
+botaoPesquisarDel.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    inputPesquisar.value = "";
+
+    inputPesquisar.dispatchEvent(new Event("keyup"));
+})
+
+botaoFiltro.addEventListener("change", (e) => {
+    const filtroSelected = e.target.value;
+
+    filtroFunction(filtroSelected);
 })
