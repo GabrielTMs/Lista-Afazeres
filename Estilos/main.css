@@ -81,6 +81,7 @@ div#camposPesFiltr {
     justify-content: center;
     align-items: center;
     gap: 24px;
+    margin-bottom:20px;
 }
 
 div#criarListaCamp {
@@ -127,7 +128,7 @@ select {
     transform: translateY(10%);
     font-size: 1.3em;
     cursor: pointer;
-    margin-left: 6px;
+    margin-left: 4px;
 }
 
 .icone:hover {
@@ -143,7 +144,6 @@ select {
 
 
 div#campoTarefas {
-    margin-top: 20px;
     width: 100%;
 }
 
