@@ -13,7 +13,7 @@ const tarefasCampo = document.querySelector("#campoTarefas");
 
 let tituloAntigoTarefa;
 
-const criadorLista = (titulo) => {
+const criadorLista = (titulo, feitoTaref = 0, dadoSalvo = 1) => {
     const divDaLista = document.createElement("div");
     divDaLista.classList.add("tarefa");
     
@@ -45,6 +45,16 @@ const criadorLista = (titulo) => {
     divCampoIcones.appendChild(excluirButton)
 
     tarefasCampo.appendChild(divDaLista);
+
+    // utilizando local storage com feitoTaref e dadoSalvo
+    
+    if(feitoTaref) {
+        divDaLista.classList.add("tarefaCompleta")
+    }
+
+    if(dadoSalvo) {
+        salvandoItensStorage({titulo, feitoTaref: 0});
+    }
 
     inputCriar.value = "";
 
@@ -121,10 +131,28 @@ const filtroFunction = (valorEscolhidoFiltro) => {
     }
 }
 
+// Local storage
+
+const pegandoItensStorage = () => {
+    const tarefaJson = JSON.parse(localStorage.getItem("tarefaJson")) || []
+
+    return tarefaJson;
+}
+
+const salvandoItensStorage = (saves) => {
+    const tarefaJson = pegandoItensStorage();
+
+    tarefaJson.push(saves);
+
+    localStorage.setItem("tarefaJson", JSON.stringify(tarefaJson))
+}
+
+//
+
 formCampo.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const criarInput = icriar.value;
+    const criarInput = inputCriar.value;
 
     if (criarInput) {
         criadorLista(criarInput);
