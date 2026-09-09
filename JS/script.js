@@ -146,6 +146,8 @@ document.addEventListener("click", (e) => {
 
     const paiBtnConcluir = alvoBtn.closest(".btnConcluir");
 
+    let tituloListaEdit;
+
     if (paiBtnConcluir) {
 
         const tarefaDiv = paiBtnConcluir.closest(".tarefa");
@@ -155,17 +157,7 @@ document.addEventListener("click", (e) => {
         }
     }
 
-    const btnExcluir = alvoBtn.closest(".btnExcluir")
-
-    if (btnExcluir) {
-        const excluirTarefa = btnExcluir.closest(".tarefa");
-        
-        if (excluirTarefa) {
-            excluirTarefa.remove();
-        }
-    }
-
-    let tituloListaEdit;
+    // let tituloListaEdit; é usado abaixo
 
     const btnEdicaoTarefa = alvoBtn.closest(".btnEditar")
 
@@ -182,6 +174,21 @@ document.addEventListener("click", (e) => {
             tituloAntigoTarefa = tituloListaEdit
         }
     }
+
+    const btnExcluir = alvoBtn.closest(".btnExcluir")
+
+    if (btnExcluir) {
+        const excluirTarefa = btnExcluir.closest(".tarefa");
+        
+        if (excluirTarefa) {
+            excluirTarefa.remove();
+
+            tituloListaEdit = excluirTarefa.querySelector("p").innerText;
+
+            removendoItensStorage(tituloListaEdit);
+        }
+    }
+
 });
 
 botaoCancelar.addEventListener("click", (e) => {
@@ -245,10 +252,10 @@ const salvandoItensStorage = (saves) => {
     localStorage.setItem("tarefaJson", JSON.stringify(tarefaJson))
 }
 
-const removendoItensStorage = () => {
+const removendoItensStorage = (mesmoTitulo) => {
     const tarefaJson = pegandoItensStorage();
 
-    const filtroRemocao = tarefaJson.filter((itensRemov) => itensRemov.text !== itensRemov)
+    const filtroRemocao = tarefaJson.filter((itensRemov) => itensRemov.titulo !== mesmoTitulo)
 
     localStorage.setItem("tarefaJson", JSON.stringify(filtroRemocao))
 
