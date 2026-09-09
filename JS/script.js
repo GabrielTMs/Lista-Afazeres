@@ -131,24 +131,6 @@ const filtroFunction = (valorEscolhidoFiltro) => {
     }
 }
 
-// Local storage
-
-const pegandoItensStorage = () => {
-    const tarefaJson = JSON.parse(localStorage.getItem("tarefaJson")) || []
-
-    return tarefaJson;
-}
-
-const salvandoItensStorage = (saves) => {
-    const tarefaJson = pegandoItensStorage();
-
-    tarefaJson.push(saves);
-
-    localStorage.setItem("tarefaJson", JSON.stringify(tarefaJson))
-}
-
-//
-
 formCampo.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -238,3 +220,40 @@ botaoFiltro.addEventListener("change", (e) => {
 
     filtroFunction(filtroSelected);
 })
+
+// Local storage
+
+const pegandoItensStorage = () => {
+    const tarefaJson = JSON.parse(localStorage.getItem("tarefaJson")) || []
+
+    return tarefaJson;
+}
+
+const carregandoItensSite = () => {
+    const tarefaJson = pegandoItensStorage();
+
+    tarefaJson.forEach((lista) => {
+        criadorLista(lista.titulo, lista.feitoTaref, 0);
+    });
+}
+
+const salvandoItensStorage = (saves) => {
+    const tarefaJson = pegandoItensStorage();
+
+    tarefaJson.push(saves);
+
+    localStorage.setItem("tarefaJson", JSON.stringify(tarefaJson))
+}
+
+const removendoItensStorage = () => {
+    const tarefaJson = pegandoItensStorage();
+
+    const filtroRemocao = tarefaJson.filter((itensRemov) => itensRemov.text !== itensRemov)
+
+    localStorage.setItem("tarefaJson", JSON.stringify(filtroRemocao))
+
+}
+
+//
+
+carregandoItensSite();
