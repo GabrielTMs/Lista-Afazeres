@@ -78,6 +78,8 @@ const inputEditFunction = (paragraf) => {
 
         if (tituloListaEdit.innerText === tituloAntigoTarefa) {
             tituloListaEdit.innerText = paragraf;
+
+            updateLocalEdicaoStorage(tituloAntigoTarefa, paragraf);
         }
     })
 }
@@ -154,6 +156,10 @@ document.addEventListener("click", (e) => {
         
         if (tarefaDiv) {
             tarefaDiv.classList.toggle("tarefaCompleta");
+
+            tituloListaEdit = tarefaDiv.querySelector("p").innerText;
+
+            updateLocalTarefaFinalizadaStorage(tituloListaEdit);
         }
     }
 
@@ -261,6 +267,26 @@ const removendoItensStorage = (mesmoTitulo) => {
 
 }
 
-//
+const updateLocalTarefaFinalizadaStorage = (updating) => {
+    const tarefaJson = pegandoItensStorage();
+
+    tarefaJson.map((atualizando) => atualizando.titulo === updating ?       
+        (atualizando.feitoTaref = !atualizando.feitoTaref): null
+    );
+//map não retorna os dados apenas modifica diferente do filter
+localStorage.setItem("tarefaJson", JSON.stringify(tarefaJson));
+};
+
+// ATENÇÃO as divs estáticas criadas antes devem ser excluidas quando for adicionar a função updateLocalTarefaFinalizadaStorage, pois acabará criando elementos com nome false, já que as funções de storage ocorrem com o intuito de serem aplicadas aos elementos dinâmicos criados e tendo elementos estaticos criados ja no HTML faz com que haja conflito, então é melhor excluir os elementos que nesse caso são as divs .tarefa que são estáticas ou seja estão presentes no HTML
+
+const updateLocalEdicaoStorage = (tituloAntigo, tituloNovo) => {
+    const tarefaJson = pegandoItensStorage();
+
+    tarefaJson.map((edicaoStorage) => edicaoStorage.titulo === tituloAntigo ?       
+        (edicaoStorage.titulo = tituloNovo): null
+    );
+
+localStorage.setItem("tarefaJson", JSON.stringify(tarefaJson));
+};
 
 carregandoItensSite();
